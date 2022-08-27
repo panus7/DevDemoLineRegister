@@ -1,6 +1,5 @@
 // Import stylesheets
 import './style.css';
-import './api-line.js';
 
 //NAT
 // Import stylesheets
@@ -67,7 +66,7 @@ async function main() {
     btnLineRegister.style.display = 'block';
   });
   // 1. Initialize LIFF app)
-  await liff.init({ liffId: '1657336640-zo5rb3B1' });
+  await liff.init({ liffId: '1657421042-ekawW2jw' });
 }
 main();
 
