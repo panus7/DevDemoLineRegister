@@ -202,7 +202,7 @@ async function funcLineRegister() {
       //element.innerHTML = JSON.stringify(data);
     })
     .catch((error) => {
-      element.parentElement.innerHTML = `Error: ${error}`;
+      //element.parentElement.innerHTML = `Error: ${error}`;
       console.error('There was an error!', error);
     });
 }
