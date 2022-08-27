@@ -170,8 +170,8 @@ async function getFriendship() {
   friendShip.innerHTML = msg;
 }
 
-function funcLineRegister() {
-  //const element = document.querySelector('#post-request .article-id');
+async function funcLineRegister() {
+  const profile = await liff.getProfile();
   const requestOptions = {
     method: 'POST',
     headers: {
@@ -181,10 +181,10 @@ function funcLineRegister() {
     body: JSON.stringify({
       param: {
         ContextKey: 'ReU',
-        LineUserID: userId.innerHTML,
+        LineUserID: profile.userId,
         IDCard: document.getElementById('txt_idcard').value,
         TelephoneNo: document.getElementById('txt_phone').value,
-        Email: document.getElementById('txt_email').value,
+        Email: liff.getDecodedIDToken().email,
       },
     }),
   };
