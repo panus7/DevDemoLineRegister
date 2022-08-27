@@ -74,8 +74,7 @@ main();
 // 6. Get email *
 async function getUserProfile() {
   const profile = await liff.getProfile();
-  lineUserId = profile.userId;
-  userId.innerHTML = '<b>UserId</b> ' + profile.userId;
+  userId.innerHTML = profile.userId;
   displayName.innerHTML = '<b>DisplayName</b> ' + profile.displayName;
   statusMessage.innerHTML = '<b>StatusMessage</b> ' + profile.statusMessage;
   statusMessage.innerHTML = '<b>IDToken</b> ' + liff.getIDToken();
@@ -182,7 +181,7 @@ function funcLineRegister() {
     body: JSON.stringify({
       param: {
         ContextKey: 'ReU',
-        LineUserID: linel,
+        LineUserID: userId.innerHTML,
         IDCard: document.getElementById('txt_idcard').value,
         TelephoneNo: document.getElementById('txt_phone').value,
         Email: document.getElementById('txt_email').value,
