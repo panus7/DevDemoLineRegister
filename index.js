@@ -63,7 +63,7 @@ async function main() {
     }
 
     // 28. Show OpenWindow button
-    btnOpenWindow.style.display = 'block';
+    // btnOpenWindow.style.display = 'block';
     btnLineRegister.style.display = 'block';
   });
   // 1. Initialize LIFF app)
