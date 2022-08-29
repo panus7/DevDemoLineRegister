@@ -242,7 +242,7 @@ async function funcEnqLineRegister() {
   const requestOptions = {
     method: 'POST',
     credentials: 'include',
-    Authorization: `Bearer ${token}`,
+    Authorization: `Bearer 123`,
     headers: {
       'Content-Type': 'application/json',
     },
