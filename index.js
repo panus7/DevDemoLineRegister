@@ -11,6 +11,7 @@ import liff from '@line/liff';
 const body = document.getElementById('body');
 
 const secProfile = document.getElementById('profile');
+const secHospitalinfo = document.getElementById('hospitalinfo');
 
 // Button elements
 // const btnSend = document.getElementById('btnSend');
@@ -32,6 +33,8 @@ const displayName = document.getElementById('displayName');
 const txt_idcard = document.getElementById('txt_idcard');
 const txt_phone = document.getElementById('txt_phone');
 
+const lblHN = document.getElementById('lblHN');
+
 const lineUserId = '';
 // QR element
 const code = document.getElementById('code');
@@ -39,21 +42,24 @@ const friendShip = document.getElementById('friendship');
 
 async function main() {
   liff.ready.then(() => {
-    if (liff.getOS() === 'android') body.style.backgroundColor = '#d1f5d3';
-    if (liff.getOS() === 'ios') body.style.backgroundColor = '#ffffff';
+    // if (liff.getOS() === 'android') body.style.backgroundColor = '#d1f5d3';
+    // if (liff.getOS() === 'ios') body.style.backgroundColor = '#ffffff';
 
     if (!liff.isInClient()) {
       if (liff.isLoggedIn()) {
         secProfile.style.display = 'block';
+        secHospitalinfo.style.display = 'none';
 
         btnLogIn.style.display = 'none';
         btnLogOut.style.display = 'block';
         // btnShare.style.display = 'block';
         getUserProfile();
         getFriendship();
+        funcEnqLineRegister();
       } else {
         secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
+        secHospitalinfo.style.display = 'none';
 
         btnLogIn.style.display = 'block';
         btnLogOut.style.display = 'none';
@@ -111,20 +117,20 @@ btnLogOut.onclick = () => {
 // 14. Create sendMsg()
 // 14.1 Ensure LIFF was opened from LINE app
 // 29. Change alert to close
-async function sendMsg() {
-  if (
-    liff.getContext().type !== 'none' &&
-    liff.getContext().type !== 'external'
-  ) {
-    await liff.sendMessages([
-      {
-        type: 'text',
-        text: liff.getAccessToken(),
-      },
-    ]);
-    liff.closeWindow();
-  }
-}
+// async function sendMsg() {
+//   if (
+//     liff.getContext().type !== 'none' &&
+//     liff.getContext().type !== 'external'
+//   ) {
+//     await liff.sendMessages([
+//       {
+//         type: 'text',
+//         text: liff.getAccessToken(),
+//       },
+//     ]);
+//     liff.closeWindow();
+//   }
+// }
 
 // 15. Add event listener to send button
 // btnSend.onclick = () => {
@@ -132,18 +138,18 @@ async function sendMsg() {
 // };
 
 // 18. Create shareMsg()
-async function shareMsg() {
-  await liff.shareTargetPicker([
-    {
-      type: 'text',
-      text: liff.getIDToken(),
-      // type: 'image',
-      // originalContentUrl: 'https://linerookie.com/images/ic_liff.png',
-      // previewImageUrl: 'https://linerookie.com/images/ic_liff.png',
-    },
-  ]);
-  liff.closeWindow();
-}
+// async function shareMsg() {
+//   await liff.shareTargetPicker([
+//     {
+//       type: 'text',
+//       text: liff.getIDToken(),
+//       // type: 'image',
+//       // originalContentUrl: 'https://linerookie.com/images/ic_liff.png',
+//       // previewImageUrl: 'https://linerookie.com/images/ic_liff.png',
+//     },
+//   ]);
+//   liff.closeWindow();
+// }
 
 // 19. Add event listener to share button
 // btnShare.onclick = () => {
@@ -151,10 +157,10 @@ async function shareMsg() {
 // };
 
 // 23. Create scanCode()
-async function scanCode() {
-  const result = await liff.scanCode();
-  code.innerHTML = '<b>QR</b> ' + result.value;
-}
+// async function scanCode() {
+//   const result = await liff.scanCode();
+//   code.innerHTML = '<b>QR</b> ' + result.value;
+// }
 
 // 24. Add event listener to QR button
 // btnScanCode.onclick = () => {
@@ -175,15 +181,15 @@ btnLineRegister.onclick = () => {
 
 // 31. Create getFriendship()
 // 31.1 Add condition to check friend status
-async function getFriendship() {
-  let msg = 'Hooray! you and our chatbot are friend';
-  const friend = await liff.getFriendship();
-  if (!friend.friendFlag) {
-    msg =
-      "<a href='https://line.me/R/ti/p/@754tuyrl'>Follow our chatbot here!</a>";
-  }
-  friendShip.innerHTML = msg;
-}
+// async function getFriendship() {
+//   let msg = 'Hooray! you and our chatbot are friend';
+//   const friend = await liff.getFriendship();
+//   if (!friend.friendFlag) {
+//     msg =
+//       "<a href='https://line.me/R/ti/p/@754tuyrl'>Follow our chatbot here!</a>";
+//   }
+//   friendShip.innerHTML = msg;
+// }
 
 async function funcLineRegister() {
   if (!txt_idcard.value || !txt_phone.value) {
@@ -207,9 +213,6 @@ async function funcLineRegister() {
       }),
     };
 
-    //element.innerHTML = JSON.stringify(requestOptions);
-    //console.log('op' + JSON.stringify(requestOptions));
-
     const targetUrl =
       'https://203.154.55.194:8445/ProductRESTService.svc/MobileUpdateLineRegister';
 
@@ -226,4 +229,37 @@ async function funcLineRegister() {
         console.error('There was an error!', error);
       });
   }
+}
+
+async function funcEnqLineRegister() {
+  const profile = await liff.getProfile();
+  const requestOptions = {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+
+    body: JSON.stringify({
+      param: {
+        ContextKey: 'ReU',
+        LineUserID: profile.userId,
+      },
+    }),
+  };
+
+  const targetUrl =
+    'https://203.154.55.194:8445/ProductRESTService.svc/MobileEnquireLineRegister';
+
+  fetch(targetUrl, requestOptions)
+    .then((response) => response.json())
+    .then((data) => {
+      lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
+      if (data.HN) {
+        secHospitalinfo.style.display = 'block';
+      }
+    })
+    .catch((error) => {
+      console.error('There was an error!', error);
+    });
+  1;
 }
