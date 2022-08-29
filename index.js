@@ -179,10 +179,7 @@ async function getFriendship() {
 }
 
 async function funcLineRegister() {
-  if (
-    !document.getElementById('txt_idcard').value ||
-    !document.getElementById('txt_phone').value
-  ) {
+  if (!txt_idcard.value || !txt_phone.value) {
     alert('IDCard,Telephone can not be empty!');
   } else {
     const profile = await liff.getProfile();
