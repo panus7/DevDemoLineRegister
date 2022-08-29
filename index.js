@@ -198,10 +198,12 @@ async function funcLineRegister() {
   fetch(targetUrl, requestOptions)
     .then((response) => response.json())
     .then((data) => {
+      alert('Register Success');
       console.log('res' + JSON.stringify(data));
       //element.innerHTML = JSON.stringify(data);
     })
     .catch((error) => {
+      alert('Update Error');
       //element.parentElement.innerHTML = `Error: ${error}`;
       console.error('There was an error!', error);
     });
