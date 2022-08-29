@@ -18,20 +18,17 @@
       crossorigin="anonymous"
     ></script>
 
-    <title>Dev Demo Line Register v..1</title>
+    <title>Dev Line Register</title>
 
     <!-- 0. Import LIFF SDK -->
     <!-- <script src="https://static.line-scdn.net/liff/edge/versions/2.1.13/sdk.js"></script> -->
   </head>
   <body id="body">
-    <h3>Dev Line Register Smart Hospital.</h3>
+    <h4>Dev Line Register Smart Hospital.</h4>
     <section id="profile">
       <img id="pictureUrl" src="https://mokmoon.com/images/ic_liff.png" />
-      <!-- 3. Show user profile -->
-      <!-- <p id="userId"></p> -->
       <p id="displayName"></p>
-      <!-- <p id="statusMessage"></p> -->
-      <p id="email"></p>
+      <!-- <p id="email"></p> -->
 
       <form id="formregis">
         <div class="form-group">
@@ -69,13 +66,11 @@
 
     <section id="hospitalinfo">
       <div class="card text-center">
-        <div class="card-header">โรงพยาบาล DEV Demo</div>
+        <div class="card-header" id="lblClinic">คลินิก</div>
         <div class="card-body">
-          <h5 class="card-title" id="lblTitle" style="font-size: 40px">
-            VN 001
-          </h5>
+          <h5 class="card-title" id="lblVN" style="font-size: 40px">VN 001</h5>
           <p id="lblHN"></p>
-          <p class="card-text" id="lblContent">ห้องตรวจหมายเลข 1</p>
+          <p class="card-text" id="lblRoom">ห้องตรวจหมายเลข 1</p>
           <!-- <a href="#" class="btn btn-primary">Go somewhere</a> -->
         </div>
         <div class="card-footer text-muted" id="lblNextQueCount">

@@ -25,7 +25,7 @@ const btnLogOut = document.getElementById('btnLogOut');
 const btnLineRegister = document.getElementById('btnLineRegister');
 
 // Profile elements
-const email = document.getElementById('email');
+// const email = document.getElementById('email');
 // const userId = document.getElementById('userId');
 const pictureUrl = document.getElementById('pictureUrl');
 const displayName = document.getElementById('displayName');
@@ -35,6 +35,10 @@ const txt_idcard = document.getElementById('txt_idcard');
 const txt_phone = document.getElementById('txt_phone');
 
 const lblHN = document.getElementById('lblHN');
+const lblClinic = document.getElementById('lblClinic');
+const lblVN = document.getElementById('lblVN');
+const lblRoom = document.getElementById('lblRoom');
+const lblNextQueCount = document.getElementById('lblNextQueCount');
 
 const lineUserId = '';
 // QR element
@@ -255,6 +259,9 @@ async function funcEnqLineRegister() {
     .then((response) => response.json())
     .then((data) => {
       lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
+      lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
+      lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
+
       if (data.HN) {
         formregis.style.display = 'none';
         secHospitalinfo.style.display = 'block';
