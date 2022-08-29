@@ -262,9 +262,6 @@ async function funcEnqLineRegister() {
   fetch(targetUrl, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-      lbllog.innerHTML =
-        '<b>funcEnqLineRegister response</b> ' + JSON.stringify(data);
-
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
       lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
@@ -275,7 +272,8 @@ async function funcEnqLineRegister() {
       }
     })
     .catch((error) => {
-      alert(error);
+      lbllog.innerHTML +=
+        '<b>funcEnqLineRegister response</b> ' + error + targetUrl;
       console.error('There was an error!', error);
     });
   1;
