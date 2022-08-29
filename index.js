@@ -171,40 +171,47 @@ async function getFriendship() {
 }
 
 async function funcLineRegister() {
-  const profile = await liff.getProfile();
-  const requestOptions = {
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-
-    body: JSON.stringify({
-      param: {
-        ContextKey: 'ReU',
-        LineUserID: profile.userId,
-        IDCard: document.getElementById('txt_idcard').value,
-        TelephoneNo: document.getElementById('txt_phone').value,
-        Email: liff.getDecodedIDToken().email,
+  if (
+    !document.getElementById('txt_idcard').value ||
+    !document.getElementById('txt_phone').value
+  ) {
+    alert('IDCard,Telephone can not be empty!');
+  } else {
+    const profile = await liff.getProfile();
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
       },
-    }),
-  };
 
-  //element.innerHTML = JSON.stringify(requestOptions);
-  //console.log('op' + JSON.stringify(requestOptions));
+      body: JSON.stringify({
+        param: {
+          ContextKey: 'ReU',
+          LineUserID: profile.userId,
+          IDCard: document.getElementById('txt_idcard').value,
+          TelephoneNo: document.getElementById('txt_phone').value,
+          Email: liff.getDecodedIDToken().email,
+        },
+      }),
+    };
 
-  const targetUrl =
-    'https://203.154.55.194:8445/ProductRESTService.svc/MobileUpdateLineRegister';
+    //element.innerHTML = JSON.stringify(requestOptions);
+    //console.log('op' + JSON.stringify(requestOptions));
 
-  fetch(targetUrl, requestOptions)
-    .then((response) => response.json())
-    .then((data) => {
-      alert('Register Success');
-      console.log('res' + JSON.stringify(data));
-      //element.innerHTML = JSON.stringify(data);
-    })
-    .catch((error) => {
-      alert('Update Error');
-      //element.parentElement.innerHTML = `Error: ${error}`;
-      console.error('There was an error!', error);
-    });
+    const targetUrl =
+      'https://203.154.55.194:8445/ProductRESTService.svc/MobileUpdateLineRegister';
+
+    fetch(targetUrl, requestOptions)
+      .then((response) => response.json())
+      .then((data) => {
+        alert('Register Success');
+        console.log('res' + JSON.stringify(data));
+        //element.innerHTML = JSON.stringify(data);
+      })
+      .catch((error) => {
+        alert('Update Error');
+        //element.parentElement.innerHTML = `Error: ${error}`;
+        console.error('There was an error!', error);
+      });
+  }
 }
