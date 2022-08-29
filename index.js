@@ -10,6 +10,8 @@ import liff from '@line/liff';
 // Body element
 const body = document.getElementById('body');
 
+const secProfile = document.getElementById('profile');
+
 // Button elements
 // const btnSend = document.getElementById('btnSend');
 // const btnClose = document.getElementById('btnClose');
@@ -18,7 +20,7 @@ const btnLogIn = document.getElementById('btnLogIn');
 const btnLogOut = document.getElementById('btnLogOut');
 // const btnScanCode = document.getElementById('btnScanCode');
 // const btnOpenWindow = document.getElementById('btnOpenWindow');
-const btnLineRegister = document.getElementById('LineRegister');
+const btnLineRegister = document.getElementById('btnLineRegister');
 
 // Profile elements
 const email = document.getElementById('email');
@@ -42,28 +44,34 @@ async function main() {
 
     if (!liff.isInClient()) {
       if (liff.isLoggedIn()) {
+        secProfile.style.display = 'block';
+
         btnLogIn.style.display = 'none';
         btnLogOut.style.display = 'block';
         // btnShare.style.display = 'block';
         getUserProfile();
         getFriendship();
       } else {
+        secProfile.style.display = 'none';
+        btnLineRegister.style.display = 'none';
+
         btnLogIn.style.display = 'block';
         btnLogOut.style.display = 'none';
       }
     } else {
+      secProfile.style.display = 'block';
+      btnLineRegister.style.display = 'block';
       getUserProfile();
       // btnSend.style.display = 'block';
       // btnShare.style.display = 'block';
-      if (liff.getOS() === 'android') {
-        // btnScanCode.style.display = 'block';
-      }
-      getFriendship();
+      // if (liff.getOS() === 'android') {
+      //   // btnScanCode.style.display = 'block';
+      // }
+      // getFriendship();
     }
 
     // 28. Show OpenWindow button
     // btnOpenWindow.style.display = 'block';
-    btnLineRegister.style.display = 'block';
   });
   // 1. Initialize LIFF app)
   await liff.init({ liffId: '1657421042-ekawW2jw' });
