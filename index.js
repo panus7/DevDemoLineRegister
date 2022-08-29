@@ -12,6 +12,7 @@ const body = document.getElementById('body');
 
 const secProfile = document.getElementById('profile');
 const secHospitalinfo = document.getElementById('hospitalinfo');
+const formregis = document.getElementById('formregis');
 
 // Button elements
 // const btnSend = document.getElementById('btnSend');
@@ -255,6 +256,7 @@ async function funcEnqLineRegister() {
     .then((data) => {
       lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
       if (data.HN) {
+        formregis.style.display = 'none';
         secHospitalinfo.style.display = 'block';
       }
     })
