@@ -9,6 +9,7 @@ import liff from '@line/liff';
 
 // Body element
 const body = document.getElementById('body');
+const lbllog = document.getElementById('lbllog');
 
 const secProfile = document.getElementById('profile');
 const secHospitalinfo = document.getElementById('hospitalinfo');
@@ -252,14 +253,20 @@ async function funcEnqLineRegister() {
     }),
   };
 
+  lbllog.innerHTML =
+    '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
+
   const targetUrl =
     'https://203.154.55.194:8445/ProductRESTService.svc/MobileEnquireLineRegister';
 
   fetch(targetUrl, requestOptions)
     .then((response) => response.json())
     .then((data) => {
-      lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
+      lbllog.innerHTML =
+        '<b>funcEnqLineRegister response</b> ' + JSON.stringify(data);
+
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
+      lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
 
       if (data.HN) {
@@ -268,6 +275,7 @@ async function funcEnqLineRegister() {
       }
     })
     .catch((error) => {
+      alert(error);
       console.error('There was an error!', error);
     });
   1;
