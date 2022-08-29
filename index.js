@@ -52,7 +52,7 @@ async function main() {
         getUserProfile();
         getFriendship();
       } else {
-        secProfile.style.display = 'none';
+        // secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
 
         btnLogIn.style.display = 'block';
