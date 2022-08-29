@@ -54,7 +54,7 @@ async function main() {
         btnLogOut.style.display = 'block';
         // btnShare.style.display = 'block';
         getUserProfile();
-        getFriendship();
+        // getFriendship();
         funcEnqLineRegister();
       } else {
         secProfile.style.display = 'none';
