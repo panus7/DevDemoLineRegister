@@ -82,12 +82,16 @@ main();
 // 6. Get email *
 async function getUserProfile() {
   const profile = await liff.getProfile();
-  userId.innerHTML = profile.userId;
-  displayName.innerHTML = '<b>DisplayName</b> ' + profile.displayName;
-  statusMessage.innerHTML = '<b>StatusMessage</b> ' + profile.statusMessage;
-  statusMessage.innerHTML = '<b>IDToken</b> ' + liff.getIDToken();
+  // userId.innerHTML = profile.userId;
+  displayName.innerHTML = '<b>สวัสดีคุณ</b> ' + profile.displayName;
+  // statusMessage.innerHTML = '<b>StatusMessage</b> ' + profile.statusMessage;
+  // statusMessage.innerHTML = '<b>IDToken</b> ' + liff.getIDToken();
   pictureUrl.src = profile.pictureUrl;
-  email.innerHTML = '<b>E-mail</b> ' + liff.getDecodedIDToken().email;
+  if (liff.getDecodedIDToken().email == 'undefined') {
+    //   email.innerHTML = '<b>E-mail</b> ' + liff.getDecodedIDToken().email;
+  } else {
+    email.innerHTML = '<b>E-mail</b> ' + liff.getDecodedIDToken().email;
+  }
 }
 
 // 9. Add event listener to login button
