@@ -24,10 +24,10 @@ const btnLineRegister = document.getElementById('btnLineRegister');
 
 // Profile elements
 const email = document.getElementById('email');
-const userId = document.getElementById('userId');
+// const userId = document.getElementById('userId');
 const pictureUrl = document.getElementById('pictureUrl');
 const displayName = document.getElementById('displayName');
-const statusMessage = document.getElementById('statusMessage');
+// const statusMessage = document.getElementById('statusMessage');
 
 const txt_idcard = document.getElementById('txt_idcard');
 const txt_phone = document.getElementById('txt_phone');
