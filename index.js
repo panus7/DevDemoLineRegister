@@ -241,7 +241,7 @@ async function funcEnqLineRegister() {
   const profile = await liff.getProfile();
   const requestOptions = {
     method: 'POST',
-    RequestMode: 'no-cors',
+    mode: 'cors',
     headers: {
       'Content-Type': 'application/json',
     },
@@ -258,7 +258,7 @@ async function funcEnqLineRegister() {
     '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
 
   const targetUrl =
-    'http://203.154.55.194:8123/WSNMR/ProductRESTService.svc/MobileEnquireLineRegister';
+    'https://203.154.55.194:8445/ProductRESTService.svc/MobileEnquireLineRegister';
 
   fetch(targetUrl, requestOptions)
     .then((response) => response.json())
