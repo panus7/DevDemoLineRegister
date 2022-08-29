@@ -257,7 +257,7 @@ async function funcEnqLineRegister() {
     '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
 
   const targetUrl =
-    'https://203.154.55.194:8445/ProductRESTService.svc/MobileEnquireLineRegister';
+    'http://203.154.55.194:8123/WSNMR/ProductRESTService.svc/MobileEnquireLineRegister';
 
   fetch(targetUrl, requestOptions)
     .then((response) => response.json())
