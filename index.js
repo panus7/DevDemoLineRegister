@@ -87,7 +87,10 @@ async function getUserProfile() {
   // statusMessage.innerHTML = '<b>StatusMessage</b> ' + profile.statusMessage;
   // statusMessage.innerHTML = '<b>IDToken</b> ' + liff.getIDToken();
   pictureUrl.src = profile.pictureUrl;
-  if (liff.getDecodedIDToken().email == 'undefined') {
+  if (
+    liff.getDecodedIDToken().email == undefined ||
+    !liff.getDecodedIDToken().email
+  ) {
     //   email.innerHTML = '<b>E-mail</b> ' + liff.getDecodedIDToken().email;
   } else {
     email.innerHTML = '<b>E-mail</b> ' + liff.getDecodedIDToken().email;
