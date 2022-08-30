@@ -220,7 +220,7 @@ async function funcLineRegister() {
     };
 
     const targetUrl =
-      'https://203.154.55.194:8445/ProductRESTService.svc/MobileUpdateLineRegister';
+      'https://dev-logic.net/dxapi/ProductRESTService.svc/MobileUpdateLineRegister';
 
     fetch(targetUrl, requestOptions)
       .then((response) => response.json())
@@ -258,7 +258,7 @@ async function funcEnqLineRegister() {
     '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
 
   const targetUrl =
-    'https://203.154.55.194:8445/ProductRESTService.svc/MobileEnquireLineRegister';
+    'https://dev-logic.net/dxapi/ProductRESTService.svc/MobileEnquireLineRegister';
 
   fetch(targetUrl, requestOptions)
     .then((response) => response.json())
