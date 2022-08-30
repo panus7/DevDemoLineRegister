@@ -253,8 +253,8 @@ async function funcEnqLineRegister() {
     }),
   };
 
-  lbllog.innerHTML =
-    '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
+  // lbllog.innerHTML =
+  //   '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
 
   const targetUrl =
     'https://dev-logic.net/dxapi/ProductRESTService.svc/MobileEnquireLineRegister';
