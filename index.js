@@ -241,7 +241,6 @@ async function funcEnqLineRegister() {
   const profile = await liff.getProfile();
   const requestOptions = {
     method: 'POST',
-    mode: 'no-cors',
     headers: {
       'Content-Type': 'application/json',
     },
