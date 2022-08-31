@@ -11,6 +11,8 @@ import liff from '@line/liff';
 const body = document.getElementById('body');
 const lbllog = document.getElementById('lbllog');
 
+const secError = document.getElementById('secError');
+
 const secProfile = document.getElementById('profile');
 const secHospitalinfo = document.getElementById('hospitalinfo');
 const formregis = document.getElementById('formregis');
@@ -66,6 +68,7 @@ async function main() {
         secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
         secHospitalinfo.style.display = 'none';
+        secError.style.display = 'none';
 
         btnLogIn.style.display = 'block';
         btnLogOut.style.display = 'none';
@@ -268,9 +271,14 @@ async function funcEnqLineRegister() {
       lblRoom.innerHTML = data.QueueStationCodeName;
       lblNoQueueBefore.innerHTML = data.NoQueueBefore;
 
-      if (data.HN) {
+      if (data.VN) {
         formregis.style.display = 'none';
         secHospitalinfo.style.display = 'block';
+        secError.style.display = 'none';
+      } else {
+        formregis.style.display = 'none';
+        secHospitalinfo.style.display = 'none';
+        secError.style.display = 'block';
       }
     })
     .catch((error) => {
