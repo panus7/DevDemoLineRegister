@@ -156,6 +156,11 @@ function setCurrentTime() {
   let currentTime = `${hours}:${minutes}:${seconds} ${amOrPm}`;
 
   document.getElementById('current-time').innerText = today + ' ' + currentTime;
+
+  if (timeleft > 60) {
+    timeleft = 0;
+    funcEnqLineRegister();
+  }
 }
 
 setInterval(function () {
