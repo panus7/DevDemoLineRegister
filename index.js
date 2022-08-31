@@ -264,7 +264,8 @@ async function funcEnqLineRegister() {
     .then((data) => {
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
       lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
-      lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
+      lblVN.innerHTML = data.VN;
+      lblRoom.innerHTML = data.QueueStationCodeName;
 
       if (data.HN) {
         formregis.style.display = 'none';
