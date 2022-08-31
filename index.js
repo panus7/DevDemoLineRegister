@@ -65,10 +65,10 @@ async function main() {
         // getFriendship();
         funcEnqLineRegister();
 
-        setTimeout(function () {
-          console.error('Timer');
-          funcEnqLineRegister();
-        }, 5000);
+        // setTimeout(function () {
+        //   console.error('Timer');
+        //   funcEnqLineRegister();
+        // }, 5000);
       } else {
         secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
