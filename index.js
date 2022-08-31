@@ -64,10 +64,6 @@ async function main() {
         getUserProfile();
         // getFriendship();
         funcEnqLineRegister();
-
-        setTimeout(function () {
-          window.location.reload(1);
-        }, 10 * 000);
       } else {
         secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
@@ -289,6 +285,10 @@ async function funcEnqLineRegister() {
         secHospitalinfo.style.display = 'none';
         secError.style.display = 'block';
       }
+
+      setTimeout(function () {
+        window.location.reload(1);
+      }, 10 * 000);
     })
     .catch((error) => {
       lbllog.innerHTML +=
