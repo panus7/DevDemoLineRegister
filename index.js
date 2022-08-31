@@ -264,7 +264,7 @@ async function funcEnqLineRegister() {
     .then((data) => {
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
       lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
-      lblVN.innerHTML = '<b>HN:</b> ' + data.VN;
+      lblVN.innerHTML = '<b>VN:</b> ' + data.VN;
       lblRoom.innerHTML = data.QueueStationCodeName;
       lblNoQueueBefore.innerHTML = data.NoQueueBefore;
 
