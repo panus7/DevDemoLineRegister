@@ -64,6 +64,10 @@ async function main() {
         getUserProfile();
         // getFriendship();
         funcEnqLineRegister();
+
+        setTimeout(function () {
+          window.location.reload(1);
+        }, 10 * 000);
       } else {
         secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
@@ -270,7 +274,7 @@ async function funcEnqLineRegister() {
       if (data.HN) {
         lblHN.style.display = 'block';
         lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
-            }
+      }
 
       lblVN.innerHTML = '<b>VN:</b> ' + data.VN;
       lblRoom.innerHTML = data.QueueStationCodeName;
