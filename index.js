@@ -57,7 +57,7 @@ async function main() {
       if (liff.isLoggedIn()) {
         secProfile.style.display = 'block';
         secHospitalinfo.style.display = 'none';
-
+        lblHN.style.display = 'none';
         btnLogIn.style.display = 'none';
         btnLogOut.style.display = 'block';
         // btnShare.style.display = 'block';
@@ -69,7 +69,7 @@ async function main() {
         btnLineRegister.style.display = 'none';
         secHospitalinfo.style.display = 'none';
         secError.style.display = 'none';
-
+        lblHN.style.display = 'none';
         btnLogIn.style.display = 'block';
         btnLogOut.style.display = 'none';
       }
@@ -266,7 +266,12 @@ async function funcEnqLineRegister() {
     .then((response) => response.json())
     .then((data) => {
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
-      lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
+
+      if (data.HN) {
+        lblHN.style.display = 'block';
+        lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
+            }
+
       lblVN.innerHTML = '<b>VN:</b> ' + data.VN;
       lblRoom.innerHTML = data.QueueStationCodeName;
       lblNoQueueBefore.innerHTML = data.NoQueueBefore;
