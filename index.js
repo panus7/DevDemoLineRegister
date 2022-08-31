@@ -49,6 +49,8 @@ const lineUserId = '';
 const code = document.getElementById('code');
 const friendShip = document.getElementById('friendship');
 
+var timeleft = 0;
+
 async function main() {
   liff.ready.then(() => {
     // if (liff.getOS() === 'android') body.style.backgroundColor = '#d1f5d3';
@@ -100,6 +102,7 @@ async function main() {
 main();
 
 function setCurrentTime() {
+  timeleft = timeleft + 1;
   var myDate = new Date();
 
   let daysList = [
@@ -156,12 +159,20 @@ function setCurrentTime() {
 }
 
 setInterval(function () {
-  // iCount = iCount + 1;
   setCurrentTime();
   // if (iCount == 60) {
   //   funcEnqLineRegister();
   // }
 }, 1000);
+
+// var downloadTimer = setInterval(function () {
+//   if (timeleft <= 0) {
+//     timeleft = 10;
+//     clearInterval(downloadTimer);
+//   }
+//   document.getElementById('progressBar').value = 10 - timeleft;
+//   timeleft -= 1;
+// }, 1000);
 
 // 4. Create getUserProfile()
 // 6. Get email *
