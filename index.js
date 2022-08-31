@@ -68,7 +68,7 @@ async function main() {
         setTimeout(function () {
           console.error('Timer');
           funcEnqLineRegister();
-        }, 30 * 000);
+        }, 30000);
       } else {
         secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
