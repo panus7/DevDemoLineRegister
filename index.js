@@ -39,7 +39,7 @@ const lblHN = document.getElementById('lblHN');
 const lblClinic = document.getElementById('lblClinic');
 const lblVN = document.getElementById('lblVN');
 const lblRoom = document.getElementById('lblRoom');
-const lblNextQueCount = document.getElementById('lblNextQueCount');
+const lblNoQueueBefore = document.getElementById('lblNoQueueBefore');
 
 const lineUserId = '';
 // QR element
@@ -264,8 +264,9 @@ async function funcEnqLineRegister() {
     .then((data) => {
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
       lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
-      lblVN.innerHTML = data.VN;
+      lblVN.innerHTML = '<b>HN:</b> ' + data.VN;
       lblRoom.innerHTML = data.QueueStationCodeName;
+      lblNoQueueBefore.innerHTML = data.NoQueueBefore;
 
       if (data.HN) {
         formregis.style.display = 'none';
