@@ -43,6 +43,7 @@ const lblVN = document.getElementById('lblVN');
 const lblRoom = document.getElementById('lblRoom');
 const lblNoQueueBefore = document.getElementById('lblNoQueueBefore');
 
+// const iCount = 0;
 const lineUserId = '';
 // QR element
 const code = document.getElementById('code');
@@ -153,6 +154,14 @@ function setCurrentTime() {
 
   document.getElementById('current-time').innerText = today + ' ' + currentTime;
 }
+
+setInterval(function () {
+  // iCount = iCount + 1;
+  setCurrentTime();
+  // if (iCount == 60) {
+  //   funcEnqLineRegister();
+  // }
+}, 1000);
 
 // 4. Create getUserProfile()
 // 6. Get email *
