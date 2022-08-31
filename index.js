@@ -287,8 +287,8 @@ async function funcEnqLineRegister() {
       }
 
       setTimeout(function () {
-        window.location.reload(1);
-      }, 10 * 000);
+        funcEnqLineRegister();
+      }, 30 * 000);
     })
     .catch((error) => {
       lbllog.innerHTML +=
