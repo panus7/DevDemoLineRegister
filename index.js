@@ -11,6 +11,8 @@ import liff from '@line/liff';
 const body = document.getElementById('body');
 const lbllog = document.getElementById('lbllog');
 
+const divLoader = document.getElementById('divLoader');
+
 const secError = document.getElementById('secError');
 
 const secProfile = document.getElementById('profile');
@@ -52,6 +54,8 @@ const friendShip = document.getElementById('friendship');
 var timeleft = 0;
 
 async function main() {
+  divLoader.style.display = 'none';
+
   liff.ready.then(() => {
     // if (liff.getOS() === 'android') body.style.backgroundColor = '#d1f5d3';
     // if (liff.getOS() === 'ios') body.style.backgroundColor = '#ffffff';
@@ -344,13 +348,15 @@ async function funcEnqLineRegister() {
 
   // lbllog.innerHTML =
   //   '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
-
+  divLoader.style.display = 'block';
   const targetUrl =
     'https://dev-logic.net/dxapi/ProductRESTService.svc/MobileEnquireLineRegister';
 
   fetch(targetUrl, requestOptions)
     .then((response) => response.json())
     .then((data) => {
+      divLoader.style.display = 'none';
+
       lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
 
       if (data.HN) {
