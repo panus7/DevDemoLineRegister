@@ -62,7 +62,7 @@ async function main() {
 
     if (!liff.isInClient()) {
       if (liff.isLoggedIn()) {
-        secProfile.style.display = 'block';
+        secProfile.style.display = 'none';
         secHospitalinfo.style.display = 'none';
         lblHN.style.display = 'none';
         btnLogIn.style.display = 'none';
@@ -367,6 +367,8 @@ async function funcEnqLineRegister() {
       lblVN.innerHTML = '<b>VN:</b> ' + data.VN;
       lblRoom.innerHTML = data.QueueStationCodeName;
       lblNoQueueBefore.innerHTML = data.NoQueueBefore;
+
+      secProfile.style.display = 'block';
 
       if (data.VN) {
         formregis.style.display = 'none';
