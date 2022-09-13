@@ -365,12 +365,16 @@ async function funcEnqLineRegister() {
 
       if (data.HN) {
         lblHN.style.display = 'block';
-        lblHN.innerHTML = '<b>HN:</b> ' + data.HN;
+        lblHN.innerHTML = '<b>HN:</b> ' + data.HN + '&nbsp;' + data.PatientName;
       }
 
       lblVN.innerHTML = '<b>VN:</b> ' + data.VN;
       lblRoom.innerHTML = data.QueueStationCodeName;
       lblNoQueueBefore.innerHTML = data.NoQueueBefore;
+
+      if ('0' == data.NoQueueBefore) {
+        lblNoQueueBefore.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+      }
 
       secProfile.style.display = 'block';
 
