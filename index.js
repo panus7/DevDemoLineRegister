@@ -46,6 +46,8 @@ const lblVN = document.getElementById('lblVN');
 const lblRoom = document.getElementById('lblRoom');
 const lblNoQueueBefore = document.getElementById('lblNoQueueBefore');
 
+const bLineRegistered = false;
+
 // const iCount = 0;
 const lineUserId = '';
 // QR element
@@ -295,6 +297,8 @@ btnLineRegister.onclick = () => {
 // }
 
 async function funcLineRegister() {
+  alert('funcLineRegister');
+
   if (!txt_idcard.value || !txt_phone.value) {
     alert('IDCard,Telephone can not be empty!');
   } else {
@@ -353,6 +357,7 @@ async function funcEnqLineRegister() {
   // lbllog.innerHTML =
   //   '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
   divLoader.style.display = 'block';
+  divwaiting.style.display = 'none';
   const targetUrl =
     'https://dev-logic.net/dxapi/ProductRESTService.svc/MobileEnquireLineRegister';
 
@@ -378,7 +383,11 @@ async function funcEnqLineRegister() {
 
       secProfile.style.display = 'block';
 
-      if (data.VN) {
+      if (!data.LineRegistered) {
+        formregis.style.display = 'block';
+        secHospitalinfo.style.display = 'none';
+        secError.style.display = 'none';
+      } else if (data.LineRegistered && data.VN) {
         formregis.style.display = 'none';
         secHospitalinfo.style.display = 'block';
         secError.style.display = 'none';
