@@ -165,11 +165,20 @@ function setCurrentTime() {
 
   document.getElementById('current-time').innerText = today + ' ' + currentTime;
 
-  divwaiting.style.display = 'block';
+  if (bLineRegistered) {
+    divwaiting.style.display = 'block';
+  } else {
+    divwaiting.style.display = 'none';
+  }
+
   if (timeleft > 60) {
     divwaiting.style.display = 'none';
     timeleft = 0;
-    funcEnqLineRegister();
+    if (bLineRegistered) {
+      funcEnqLineRegister();
+    } else {
+      console.log('skip enq not register');
+    }
   }
 }
 
@@ -297,7 +306,7 @@ btnLineRegister.onclick = () => {
 // }
 
 async function funcLineRegister() {
-  alert('funcLineRegister');
+  //alert('funcLineRegister');
 
   if (!txt_idcard.value || !txt_phone.value) {
     alert('IDCard,Telephone can not be empty!');
@@ -320,14 +329,16 @@ async function funcLineRegister() {
       }),
     };
 
+    console.log('MobileUpdateLineRegister');
     const targetUrl =
       'https://dev-logic.net/dxapi/ProductRESTService.svc/MobileUpdateLineRegister';
 
-    fetch(targetUrl, requestOptions)
+    await fetch(targetUrl, requestOptions)
       .then((response) => response.json())
       .then((data) => {
         alert('Register Success');
-        console.log('res' + JSON.stringify(data));
+        funcEnqLineRegister();
+        //console.log('res' + JSON.stringify(data));
         //element.innerHTML = JSON.stringify(data);
       })
       .catch((error) => {
