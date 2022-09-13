@@ -11,6 +11,15 @@ body {
   animation: spin 2s linear infinite;
 }
 
+.waiting {
+  border: 16px solid #f3f3f3;
+  border-top: 16px solid #04aa6d;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  animation: spin 2s linear infinite;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);

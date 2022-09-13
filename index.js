@@ -12,6 +12,7 @@ const body = document.getElementById('body');
 const lbllog = document.getElementById('lbllog');
 
 const divLoader = document.getElementById('divLoader');
+const divwaiting = document.getElementById('divwaiting');
 
 const secError = document.getElementById('secError');
 
@@ -55,6 +56,7 @@ var timeleft = 0;
 
 async function main() {
   divLoader.style.display = 'none';
+  divwaiting.style.display = 'none';
 
   liff.ready.then(() => {
     // if (liff.getOS() === 'android') body.style.backgroundColor = '#d1f5d3';
@@ -161,7 +163,9 @@ function setCurrentTime() {
 
   document.getElementById('current-time').innerText = today + ' ' + currentTime;
 
+  divwaiting.style.display = 'block';
   if (timeleft > 60) {
+    divwaiting.style.display = 'none';
     timeleft = 0;
     funcEnqLineRegister();
   }
@@ -374,6 +378,7 @@ async function funcEnqLineRegister() {
         formregis.style.display = 'none';
         secHospitalinfo.style.display = 'block';
         secError.style.display = 'none';
+        divwaiting.style.display = 'block';
       } else {
         formregis.style.display = 'none';
         secHospitalinfo.style.display = 'none';
