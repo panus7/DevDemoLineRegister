@@ -430,38 +430,39 @@ async function funcEnqLineRegister() {
         sechospitalinfolink4.style.display = 'none';
 
         secError.style.display = 'none';
-      } else if (data.LineRegistered && !data.ListOfQueue) {
+      } else if (data.LineRegistered && data.ListOfQueue.length > 0) {
         formregis.style.display = 'none';
 
-        for (let i = 0; i < data.ListOfQueue; i++) {
-          //text += cars[i] + '<br>';
-          if (i == 0 && data.ListOfQueue[i].VN) {
-            let row = data.ListOfQueue[i];
+        for (let i = 0; i < data.ListOfQueue.length; i++) {
+          let row = data.ListOfQueue[i];
+
+          if (i == 0 && row.VN) {
+            console.log('loop 1');
             secHospitalinfo.style.display = 'block';
             lblClinic.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            if (row.HN) {
-              lblHN.style.display = 'block';
-              lblHN.innerHTML =
-                '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
-            }
+            // if (row.HN) {
+            //   lblHN.style.display = 'block';
+            //   lblHN.innerHTML =
+            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
+            // }
             lblVN.innerHTML = '<b>VN:</b> ' + row.VN;
-            lblRoom.innerHTML = row.QueueStationCodeName;
+            lblRoom.innerHTML =
+              row.QueueStationCodeName +
+              '<br><b>HN:</b> ' +
+              row.HN +
+              '&nbsp;' +
+              row.PatientName;
             lblNoQueueBefore.innerHTML = row.NoQueueBefore;
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBefore.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             }
-          } else if (i == 1 && row.ListOfQueue[i].VN) {
+          } else if (i == 1 && row.VN) {
             sechospitalinfolink1.style.display = 'block';
             lblCliniclink1.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            // if (row.HN) {
-            //   lblHNlink1.style.display = 'block';
-            //   lblHNlink1.innerHTML =
-            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
-            // }
             lblVNlink1.innerHTML = '<b>VN:</b> ' + row.VN;
             lblRoomlink1.innerHTML =
               row.QueueStationCodeName +
-              '<b>HN:</b> ' +
+              '<br><b>HN:</b> ' +
               row.HN +
               '&nbsp;' +
               row.PatientName;
@@ -469,18 +470,14 @@ async function funcEnqLineRegister() {
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBeforelink1.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             }
-          } else if (i == 2 && row.ListOfQueue[i].VN) {
+          } else if (i == 2 && row.VN) {
+            console.log('loop 3');
             sechospitalinfolink2.style.display = 'block';
             lblCliniclink2.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            // if (row.HN) {
-            //   lblHNlink1.style.display = 'block';
-            //   lblHNlink1.innerHTML =
-            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
-            // }
             lblVNlink2.innerHTML = '<b>VN:</b> ' + row.VN;
             lblRoomlink2.innerHTML =
               row.QueueStationCodeName +
-              '<b>HN:</b> ' +
+              '<br><b>HN:</b> ' +
               row.HN +
               '&nbsp;' +
               row.PatientName;
@@ -488,18 +485,13 @@ async function funcEnqLineRegister() {
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBeforelink2.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             }
-          } else if (i == 3 && row.ListOfQueue[i].VN) {
+          } else if (i == 3 && row.VN) {
             sechospitalinfolink3.style.display = 'block';
             lblCliniclink3.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            // if (row.HN) {
-            //   lblHNlink1.style.display = 'block';
-            //   lblHNlink1.innerHTML =
-            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
-            // }
             lblVNlink3.innerHTML = '<b>VN:</b> ' + row.VN;
             lblRoomlink3.innerHTML =
               row.QueueStationCodeName +
-              '<b>HN:</b> ' +
+              '<br><b>HN:</b> ' +
               row.HN +
               '&nbsp;' +
               row.PatientName;
@@ -510,15 +502,10 @@ async function funcEnqLineRegister() {
           } else if (i == 4 && row.ListOfQueue[i].VN) {
             sechospitalinfolink4.style.display = 'block';
             lblCliniclink4.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            // if (row.HN) {
-            //   lblHNlink1.style.display = 'block';
-            //   lblHNlink1.innerHTML =
-            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
-            // }
             lblVNlink4.innerHTML = '<b>VN:</b> ' + row.VN;
             lblRoomlink4.innerHTML =
               row.QueueStationCodeName +
-              '<b>HN:</b> ' +
+              '<br><b>HN:</b> ' +
               row.HN +
               '&nbsp;' +
               row.PatientName;
