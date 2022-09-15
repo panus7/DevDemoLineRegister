@@ -18,6 +18,11 @@ const secError = document.getElementById('secError');
 
 const secProfile = document.getElementById('profile');
 const secHospitalinfo = document.getElementById('hospitalinfo');
+const sechospitalinfolink1 = document.getElementById('hospitalinfolink1');
+const sechospitalinfolink2 = document.getElementById('hospitalinfolink2');
+const sechospitalinfolink3 = document.getElementById('hospitalinfolink3');
+const sechospitalinfolink4 = document.getElementById('hospitalinfolink4');
+
 const formregis = document.getElementById('formregis');
 
 // Button elements
@@ -46,6 +51,30 @@ const lblVN = document.getElementById('lblVN');
 const lblRoom = document.getElementById('lblRoom');
 const lblNoQueueBefore = document.getElementById('lblNoQueueBefore');
 
+const lblHNlink1 = document.getElementById('lblHNlink1');
+const lblCliniclink1 = document.getElementById('lblCliniclink1');
+const lblVNlink1 = document.getElementById('lblVNlink1');
+const lblRoomlink1 = document.getElementById('lblRoomlink1');
+const lblNoQueueBeforelink1 = document.getElementById('lblNoQueueBeforelink1');
+
+const lblHNlink2 = document.getElementById('lblHNlink2');
+const lblCliniclink2 = document.getElementById('lblCliniclink2');
+const lblVNlink2 = document.getElementById('lblVNlink2');
+const lblRoomlink2 = document.getElementById('lblRoomlink2');
+const lblNoQueueBeforelink2 = document.getElementById('lblNoQueueBeforelink2');
+
+const lblHNlink3 = document.getElementById('lblHNlink3');
+const lblCliniclink3 = document.getElementById('lblCliniclink3');
+const lblVNlink3 = document.getElementById('lblVNlink3');
+const lblRoomlink3 = document.getElementById('lblRoomlink3');
+const lblNoQueueBeforelink3 = document.getElementById('lblNoQueueBeforelink3');
+
+const lblHNlink4 = document.getElementById('lblHNlink4');
+const lblCliniclink4 = document.getElementById('lblCliniclink4');
+const lblVNlink4 = document.getElementById('lblVNlink4');
+const lblRoomlink4 = document.getElementById('lblRoomlink4');
+const lblNoQueueBeforelink4 = document.getElementById('lblNoQueueBeforelink4');
+
 const bLineRegistered = false;
 
 // const iCount = 0;
@@ -67,7 +96,13 @@ async function main() {
     if (!liff.isInClient()) {
       if (liff.isLoggedIn()) {
         secProfile.style.display = 'none';
+
         secHospitalinfo.style.display = 'none';
+        sechospitalinfolink1.style.display = 'none';
+        sechospitalinfolink2.style.display = 'none';
+        sechospitalinfolink3.style.display = 'none';
+        sechospitalinfolink4.style.display = 'none';
+
         lblHN.style.display = 'none';
         btnLogIn.style.display = 'none';
         btnLogOut.style.display = 'block';
@@ -83,7 +118,13 @@ async function main() {
       } else {
         secProfile.style.display = 'none';
         btnLineRegister.style.display = 'none';
+
         secHospitalinfo.style.display = 'none';
+        sechospitalinfolink1.style.display = 'none';
+        sechospitalinfolink2.style.display = 'none';
+        sechospitalinfolink3.style.display = 'none';
+        sechospitalinfolink4.style.display = 'none';
+
         secError.style.display = 'none';
         lblHN.style.display = 'none';
         btnLogIn.style.display = 'block';
@@ -377,35 +418,127 @@ async function funcEnqLineRegister() {
     .then((data) => {
       divLoader.style.display = 'none';
 
-      lblClinic.innerHTML = '<b>คลินิก:</b> ' + data.Clinic;
-
-      if (data.HN) {
-        lblHN.style.display = 'block';
-        lblHN.innerHTML = '<b>HN:</b> ' + data.HN + '&nbsp;' + data.PatientName;
-      }
-
-      lblVN.innerHTML = '<b>VN:</b> ' + data.VN;
-      lblRoom.innerHTML = data.QueueStationCodeName;
-      lblNoQueueBefore.innerHTML = data.NoQueueBefore;
-
-      if ('0' == data.NoQueueBefore) {
-        lblNoQueueBefore.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
-      }
-
       secProfile.style.display = 'block';
 
       if (!data.LineRegistered) {
         formregis.style.display = 'block';
+
         secHospitalinfo.style.display = 'none';
+        sechospitalinfolink1.style.display = 'none';
+        sechospitalinfolink2.style.display = 'none';
+        sechospitalinfolink3.style.display = 'none';
+        sechospitalinfolink4.style.display = 'none';
+
         secError.style.display = 'none';
       } else if (data.LineRegistered && data.VN) {
         formregis.style.display = 'none';
-        secHospitalinfo.style.display = 'block';
+
+        for (let i = 0; i < data.ListOfQueue; i++) {
+          //text += cars[i] + '<br>';
+          if (i == 0 && data.ListOfQueue[i].VN) {
+            let row = data.ListOfQueue[i];
+            secHospitalinfo.style.display = 'block';
+            lblClinic.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            if (row.HN) {
+              lblHN.style.display = 'block';
+              lblHN.innerHTML =
+                '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
+            }
+            lblVN.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblRoom.innerHTML = row.QueueStationCodeName;
+            lblNoQueueBefore.innerHTML = row.NoQueueBefore;
+            if ('0' == row.NoQueueBefore) {
+              lblNoQueueBefore.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            }
+          } else if (i == 1 && row.ListOfQueue[i].VN) {
+            sechospitalinfolink1.style.display = 'block';
+            lblCliniclink1.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            // if (row.HN) {
+            //   lblHNlink1.style.display = 'block';
+            //   lblHNlink1.innerHTML =
+            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
+            // }
+            lblVNlink1.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblRoomlink1.innerHTML =
+              row.QueueStationCodeName +
+              '<b>HN:</b> ' +
+              row.HN +
+              '&nbsp;' +
+              row.PatientName;
+            lblNoQueueBeforelink1.innerHTML = row.NoQueueBefore;
+            if ('0' == row.NoQueueBefore) {
+              lblNoQueueBeforelink1.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            }
+          } else if (i == 2 && row.ListOfQueue[i].VN) {
+            sechospitalinfolink2.style.display = 'block';
+            lblCliniclink2.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            // if (row.HN) {
+            //   lblHNlink1.style.display = 'block';
+            //   lblHNlink1.innerHTML =
+            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
+            // }
+            lblVNlink2.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblRoomlink2.innerHTML =
+              row.QueueStationCodeName +
+              '<b>HN:</b> ' +
+              row.HN +
+              '&nbsp;' +
+              row.PatientName;
+            lblNoQueueBeforelink2.innerHTML = row.NoQueueBefore;
+            if ('0' == row.NoQueueBefore) {
+              lblNoQueueBeforelink2.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            }
+          } else if (i == 3 && row.ListOfQueue[i].VN) {
+            sechospitalinfolink3.style.display = 'block';
+            lblCliniclink3.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            // if (row.HN) {
+            //   lblHNlink1.style.display = 'block';
+            //   lblHNlink1.innerHTML =
+            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
+            // }
+            lblVNlink3.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblRoomlink3.innerHTML =
+              row.QueueStationCodeName +
+              '<b>HN:</b> ' +
+              row.HN +
+              '&nbsp;' +
+              row.PatientName;
+            lblNoQueueBeforelink3.innerHTML = row.NoQueueBefore;
+            if ('0' == row.NoQueueBefore) {
+              lblNoQueueBeforelink3.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            }
+          } else if (i == 4 && row.ListOfQueue[i].VN) {
+            sechospitalinfolink4.style.display = 'block';
+            lblCliniclink4.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            // if (row.HN) {
+            //   lblHNlink1.style.display = 'block';
+            //   lblHNlink1.innerHTML =
+            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
+            // }
+            lblVNlink4.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblRoomlink4.innerHTML =
+              row.QueueStationCodeName +
+              '<b>HN:</b> ' +
+              row.HN +
+              '&nbsp;' +
+              row.PatientName;
+            lblNoQueueBeforelink4.innerHTML = row.NoQueueBefore;
+            if ('0' == row.NoQueueBefore) {
+              lblNoQueueBeforelink4.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            }
+          }
+        }
+
         secError.style.display = 'none';
         divwaiting.style.display = 'block';
       } else {
         formregis.style.display = 'none';
         secHospitalinfo.style.display = 'none';
+        sechospitalinfolink1.style.display = 'none';
+        sechospitalinfolink2.style.display = 'none';
+        sechospitalinfolink3.style.display = 'none';
+        sechospitalinfolink4.style.display = 'none';
+
         secError.style.display = 'block';
       }
     })
