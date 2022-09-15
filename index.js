@@ -360,7 +360,8 @@ async function funcEnqLineRegister() {
             }
           } else if (i == 1 && row.VN) {
             sechospitalinfolink1.style.display = 'block';
-            lblCliniclink1.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            lblCliniclink1.innerHTML =
+              '<b>คลินิก:</b> ' + row.Clinic + '&nbsp;<b>VN:</b> ' + row.VN;
             lblVNlink1.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink1.innerHTML =
               row.QueueStationCodeName +
@@ -384,7 +385,8 @@ async function funcEnqLineRegister() {
           } else if (i == 2 && row.VN) {
             console.log('loop 3');
             sechospitalinfolink2.style.display = 'block';
-            lblCliniclink2.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            lblCliniclink2.innerHTML =
+              '<b>คลินิก:</b> ' + row.Clinic + '&nbsp;<b>VN:</b> ' + row.VN;
             lblVNlink2.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink2.innerHTML =
               row.QueueStationCodeName +
@@ -407,7 +409,8 @@ async function funcEnqLineRegister() {
             }
           } else if (i == 3 && row.VN) {
             sechospitalinfolink3.style.display = 'block';
-            lblCliniclink3.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            lblCliniclink3.innerHTML =
+              '<b>คลินิก:</b> ' + row.Clinic + '&nbsp;<b>VN:</b> ' + row.VN;
             lblVNlink3.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink3.innerHTML =
               row.QueueStationCodeName +
@@ -429,7 +432,8 @@ async function funcEnqLineRegister() {
             }
           } else if (i == 4 && row.VN) {
             sechospitalinfolink4.style.display = 'block';
-            lblCliniclink4.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            lblCliniclink4.innerHTML =
+              '<b>คลินิก:</b> ' + row.Clinic + '&nbsp;<b>VN:</b> ' + row.VN;
             lblVNlink4.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink4.innerHTML =
               row.QueueStationCodeName +
