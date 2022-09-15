@@ -407,7 +407,7 @@ async function funcEnqLineRegister() {
               lblNoQueueBeforelink3.innerHTML =
                 'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
-          } else if (i == 4 && row.ListOfQueue[i].VN) {
+          } else if (i == 4 && row.VN) {
             sechospitalinfolink4.style.display = 'block';
             lblCliniclink4.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
             lblVNlink4.innerHTML = '<b>' + row.QueueNo + '</b>';
