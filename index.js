@@ -45,31 +45,26 @@ const displayName = document.getElementById('displayName');
 const txt_idcard = document.getElementById('txt_idcard');
 const txt_phone = document.getElementById('txt_phone');
 
-const lblHN = document.getElementById('lblHN');
 const lblClinic = document.getElementById('lblClinic');
 const lblVN = document.getElementById('lblVN');
 const lblRoom = document.getElementById('lblRoom');
 const lblNoQueueBefore = document.getElementById('lblNoQueueBefore');
 
-const lblHNlink1 = document.getElementById('lblHNlink1');
 const lblCliniclink1 = document.getElementById('lblCliniclink1');
 const lblVNlink1 = document.getElementById('lblVNlink1');
 const lblRoomlink1 = document.getElementById('lblRoomlink1');
 const lblNoQueueBeforelink1 = document.getElementById('lblNoQueueBeforelink1');
 
-const lblHNlink2 = document.getElementById('lblHNlink2');
 const lblCliniclink2 = document.getElementById('lblCliniclink2');
 const lblVNlink2 = document.getElementById('lblVNlink2');
 const lblRoomlink2 = document.getElementById('lblRoomlink2');
 const lblNoQueueBeforelink2 = document.getElementById('lblNoQueueBeforelink2');
 
-const lblHNlink3 = document.getElementById('lblHNlink3');
 const lblCliniclink3 = document.getElementById('lblCliniclink3');
 const lblVNlink3 = document.getElementById('lblVNlink3');
 const lblRoomlink3 = document.getElementById('lblRoomlink3');
 const lblNoQueueBeforelink3 = document.getElementById('lblNoQueueBeforelink3');
 
-const lblHNlink4 = document.getElementById('lblHNlink4');
 const lblCliniclink4 = document.getElementById('lblCliniclink4');
 const lblVNlink4 = document.getElementById('lblVNlink4');
 const lblRoomlink4 = document.getElementById('lblRoomlink4');
@@ -103,7 +98,6 @@ async function main() {
         sechospitalinfolink3.style.display = 'none';
         sechospitalinfolink4.style.display = 'none';
 
-        lblHN.style.display = 'none';
         btnLogIn.style.display = 'none';
         btnLogOut.style.display = 'block';
         // btnShare.style.display = 'block';
@@ -126,7 +120,6 @@ async function main() {
         sechospitalinfolink4.style.display = 'none';
 
         secError.style.display = 'none';
-        lblHN.style.display = 'none';
         btnLogIn.style.display = 'block';
         btnLogOut.style.display = 'none';
       }
@@ -212,7 +205,7 @@ function setCurrentTime() {
     divwaiting.style.display = 'none';
   }
 
-  if (timeleft > 60) {
+  if (timeleft > 30) {
     divwaiting.style.display = 'none';
     timeleft = 0;
     if (bLineRegistered) {
@@ -406,8 +399,6 @@ async function funcEnqLineRegister() {
     }),
   };
 
-  // lbllog.innerHTML =
-  //   '<b>funcEnqLineRegister</b> ' + JSON.stringify(requestOptions);
   divLoader.style.display = 'block';
   divwaiting.style.display = 'none';
   const targetUrl =
@@ -437,14 +428,8 @@ async function funcEnqLineRegister() {
           let row = data.ListOfQueue[i];
 
           if (i == 0 && row.VN) {
-            console.log('loop 1');
             secHospitalinfo.style.display = 'block';
             lblClinic.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            // if (row.HN) {
-            //   lblHN.style.display = 'block';
-            //   lblHN.innerHTML =
-            //     '<b>HN:</b> ' + row.HN + '&nbsp;' + row.PatientName;
-            // }
             lblVN.innerHTML = '<b>VN:</b> ' + row.VN;
             lblRoom.innerHTML =
               row.QueueStationCodeName +
@@ -452,9 +437,12 @@ async function funcEnqLineRegister() {
               row.HN +
               '&nbsp;' +
               row.PatientName;
-            lblNoQueueBefore.innerHTML = row.NoQueueBefore;
+
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBefore.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            } else {
+              lblNoQueueBefore.innerHTML =
+                'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
           } else if (i == 1 && row.VN) {
             sechospitalinfolink1.style.display = 'block';
@@ -466,9 +454,12 @@ async function funcEnqLineRegister() {
               row.HN +
               '&nbsp;' +
               row.PatientName;
-            lblNoQueueBeforelink1.innerHTML = row.NoQueueBefore;
+
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBeforelink1.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            } else {
+              lblNoQueueBeforelink1.innerHTML =
+                'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
           } else if (i == 2 && row.VN) {
             console.log('loop 3');
@@ -481,9 +472,12 @@ async function funcEnqLineRegister() {
               row.HN +
               '&nbsp;' +
               row.PatientName;
-            lblNoQueueBeforelink2.innerHTML = row.NoQueueBefore;
+
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBeforelink2.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            } else {
+              lblNoQueueBeforelink2.innerHTML =
+                'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
           } else if (i == 3 && row.VN) {
             sechospitalinfolink3.style.display = 'block';
@@ -495,9 +489,11 @@ async function funcEnqLineRegister() {
               row.HN +
               '&nbsp;' +
               row.PatientName;
-            lblNoQueueBeforelink3.innerHTML = row.NoQueueBefore;
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBeforelink3.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            } else {
+              lblNoQueueBeforelink3.innerHTML =
+                'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
           } else if (i == 4 && row.ListOfQueue[i].VN) {
             sechospitalinfolink4.style.display = 'block';
@@ -512,6 +508,9 @@ async function funcEnqLineRegister() {
             lblNoQueueBeforelink4.innerHTML = row.NoQueueBefore;
             if ('0' == row.NoQueueBefore) {
               lblNoQueueBeforelink4.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
+            } else {
+              lblNoQueueBeforelink4.innerHTML =
+                'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
           }
         }
