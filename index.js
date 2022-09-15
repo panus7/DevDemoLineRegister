@@ -349,7 +349,7 @@ btnLineRegister.onclick = () => {
 async function funcLineRegister() {
   //alert('funcLineRegister');
 
-  if (!txt_idcard.value || !txt_phone.value) {
+  if (!txt_idcard.value && !txt_phone.value) {
     alert('IDCard,Telephone can not be empty!');
   } else {
     const profile = await liff.getProfile();
