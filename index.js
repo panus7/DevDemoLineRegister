@@ -336,7 +336,8 @@ async function funcEnqLineRegister() {
 
           if (i == 0 && row.VN) {
             secHospitalinfo.style.display = 'block';
-            lblClinic.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
+            lblClinic.innerHTML =
+              '<b>คลินิก:</b> ' + row.Clinic + '&nbsp;<b>VN:</b> ' + row.VN;
             lblVN.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoom.innerHTML =
               row.QueueStationCodeName +
@@ -349,10 +350,11 @@ async function funcEnqLineRegister() {
               document
                 .getElementById('lblNoQueueBefore')
                 .classList.add('blink_txt');
-              //lblNoQueueBefore.classList.add('blink_txt');
-              //lblNoQueueBefore.classList.remove('MyClass');
               lblNoQueueBefore.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
+              document
+                .getElementById('lblNoQueueBefore')
+                .classList.remove('blink_txt');
               lblNoQueueBefore.innerHTML =
                 'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
@@ -368,8 +370,14 @@ async function funcEnqLineRegister() {
               row.PatientName;
 
             if ('0' == row.NoQueueBefore) {
+              document
+                .getElementById('lblNoQueueBeforelink1')
+                .classList.add('blink_txt');
               lblNoQueueBeforelink1.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
+              document
+                .getElementById('lblNoQueueBeforelink1')
+                .classList.remove('blink_txt');
               lblNoQueueBeforelink1.innerHTML =
                 'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
@@ -386,8 +394,14 @@ async function funcEnqLineRegister() {
               row.PatientName;
 
             if ('0' == row.NoQueueBefore) {
+              document
+                .getElementById('lblNoQueueBeforelink2')
+                .classList.add('blink_txt');
               lblNoQueueBeforelink2.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
+              document
+                .getElementById('lblNoQueueBeforelink2')
+                .classList.remove('blink_txt');
               lblNoQueueBeforelink2.innerHTML =
                 'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
@@ -402,8 +416,14 @@ async function funcEnqLineRegister() {
               '&nbsp;' +
               row.PatientName;
             if ('0' == row.NoQueueBefore) {
+              document
+                .getElementById('lblNoQueueBeforelink3')
+                .classList.add('blink_txt');
               lblNoQueueBeforelink3.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
+              document
+                .getElementById('lblNoQueueBeforelink3')
+                .classList.remove('blink_txt');
               lblNoQueueBeforelink3.innerHTML =
                 'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
@@ -417,10 +437,15 @@ async function funcEnqLineRegister() {
               row.HN +
               '&nbsp;' +
               row.PatientName;
-            lblNoQueueBeforelink4.innerHTML = row.NoQueueBefore;
             if ('0' == row.NoQueueBefore) {
+              document
+                .getElementById('lblNoQueueBeforelink4')
+                .classList.add('blink_txt');
               lblNoQueueBeforelink4.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
+              document
+                .getElementById('lblNoQueueBeforelink4')
+                .classList.remove('blink_txt');
               lblNoQueueBeforelink4.innerHTML =
                 'จำนวนคิวก่อนหน้า&nbsp;<b>' + row.NoQueueBefore + '</b>';
             }
