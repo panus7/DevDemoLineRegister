@@ -50,6 +50,17 @@ body {
   text-align: center;
 }
 
+.blockout {
+  display: block;
+  width: 100%;
+  border: none;
+  background-color: orange;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  text-align: center;
+}
+
 button {
   display: none;
   width: 100%;

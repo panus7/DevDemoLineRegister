@@ -349,26 +349,9 @@ async function funcEnqLineRegister() {
             if ('0' == row.NoQueueBefore) {
               document
                 .getElementById('lblNoQueueBefore')
-                .classList.remove('text-muted');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-danger');
-
-              document
-                .getElementById('lblNoQueueBefore')
                 .classList.add('blink_txt');
-
               lblNoQueueBefore.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-danger');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-muted');
-
               document
                 .getElementById('lblNoQueueBefore')
                 .classList.remove('blink_txt');
@@ -389,26 +372,10 @@ async function funcEnqLineRegister() {
 
             if ('0' == row.NoQueueBefore) {
               document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-muted');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-danger');
-
-              document
                 .getElementById('lblNoQueueBeforelink1')
                 .classList.add('blink_txt');
               lblNoQueueBeforelink1.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-danger');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-muted');
-
               document
                 .getElementById('lblNoQueueBeforelink1')
                 .classList.remove('blink_txt');
@@ -429,26 +396,10 @@ async function funcEnqLineRegister() {
 
             if ('0' == row.NoQueueBefore) {
               document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-muted');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-danger');
-
-              document
                 .getElementById('lblNoQueueBeforelink2')
                 .classList.add('blink_txt');
               lblNoQueueBeforelink2.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-danger');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-muted');
-
               document
                 .getElementById('lblNoQueueBeforelink2')
                 .classList.remove('blink_txt');
@@ -468,26 +419,10 @@ async function funcEnqLineRegister() {
               row.PatientName;
             if ('0' == row.NoQueueBefore) {
               document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-muted');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-danger');
-
-              document
                 .getElementById('lblNoQueueBeforelink3')
                 .classList.add('blink_txt');
               lblNoQueueBeforelink3.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-danger');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-muted');
-
               document
                 .getElementById('lblNoQueueBeforelink3')
                 .classList.remove('blink_txt');
@@ -507,26 +442,10 @@ async function funcEnqLineRegister() {
               row.PatientName;
             if ('0' == row.NoQueueBefore) {
               document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-muted');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-danger');
-
-              document
                 .getElementById('lblNoQueueBeforelink4')
                 .classList.add('blink_txt');
               lblNoQueueBeforelink4.innerHTML = '<b>เรียนเชิญพบเจ้าหน้าที่</b>';
             } else {
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.remove('text-danger');
-
-              document
-                .getElementById('lblNoQueueBefore')
-                .classList.add('text-muted');
-
               document
                 .getElementById('lblNoQueueBeforelink4')
                 .classList.remove('blink_txt');
