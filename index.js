@@ -337,7 +337,7 @@ async function funcEnqLineRegister() {
           if (i == 0 && row.VN) {
             secHospitalinfo.style.display = 'block';
             lblClinic.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            lblVN.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblVN.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoom.innerHTML =
               row.QueueStationCodeName +
               '<br><b>HN:</b> ' +
@@ -359,7 +359,7 @@ async function funcEnqLineRegister() {
           } else if (i == 1 && row.VN) {
             sechospitalinfolink1.style.display = 'block';
             lblCliniclink1.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            lblVNlink1.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblVNlink1.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink1.innerHTML =
               row.QueueStationCodeName +
               '<br><b>HN:</b> ' +
@@ -377,7 +377,7 @@ async function funcEnqLineRegister() {
             console.log('loop 3');
             sechospitalinfolink2.style.display = 'block';
             lblCliniclink2.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            lblVNlink2.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblVNlink2.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink2.innerHTML =
               row.QueueStationCodeName +
               '<br><b>HN:</b> ' +
@@ -394,7 +394,7 @@ async function funcEnqLineRegister() {
           } else if (i == 3 && row.VN) {
             sechospitalinfolink3.style.display = 'block';
             lblCliniclink3.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            lblVNlink3.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblVNlink3.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink3.innerHTML =
               row.QueueStationCodeName +
               '<br><b>HN:</b> ' +
@@ -410,7 +410,7 @@ async function funcEnqLineRegister() {
           } else if (i == 4 && row.ListOfQueue[i].VN) {
             sechospitalinfolink4.style.display = 'block';
             lblCliniclink4.innerHTML = '<b>คลินิก:</b> ' + row.Clinic;
-            lblVNlink4.innerHTML = '<b>VN:</b> ' + row.VN;
+            lblVNlink4.innerHTML = '<b>' + row.QueueNo + '</b>';
             lblRoomlink4.innerHTML =
               row.QueueStationCodeName +
               '<br><b>HN:</b> ' +
