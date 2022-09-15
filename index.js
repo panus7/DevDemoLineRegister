@@ -430,7 +430,7 @@ async function funcEnqLineRegister() {
         sechospitalinfolink4.style.display = 'none';
 
         secError.style.display = 'none';
-      } else if (data.LineRegistered && data.VN) {
+      } else if (data.LineRegistered && !data.ListOfQueue) {
         formregis.style.display = 'none';
 
         for (let i = 0; i < data.ListOfQueue; i++) {
@@ -528,7 +528,6 @@ async function funcEnqLineRegister() {
             }
           }
         }
-
         secError.style.display = 'none';
         divwaiting.style.display = 'block';
       } else {
