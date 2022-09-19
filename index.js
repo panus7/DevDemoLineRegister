@@ -199,6 +199,8 @@ function setCurrentTime() {
 
   document.getElementById('current-time').innerText = today + ' ' + currentTime;
 
+  console.log('bLineRegistered ' + bLineRegistered);
+
   if (bLineRegistered) {
     divwaiting.style.display = 'block';
   } else {
